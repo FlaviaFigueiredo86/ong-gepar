@@ -32,11 +32,11 @@ export function Header() {
           />
 
           <span className="brand-text">
-            <strong className="grafite">ONG GEPAR</strong>
-            <small>
-              Grupo Esteiense de Proteção aos Animais de Rua
-            </small>
-          </span>
+  <strong className="titulo-gepar">ONG GEPAR</strong>
+  <small className="subtitulo-gepar">
+    Grupo Esteiense de Proteção aos Animais de Rua
+  </small>
+</span>
         </Link>
 
         <button
@@ -52,7 +52,6 @@ export function Header() {
           <NavLink to="/animais">Adote</NavLink>
           <NavLink to="/sobre">Sobre nós</NavLink>
           <NavLink to="/guia">Guia de adoção</NavLink>
-          <NavLink to="/calendario">Feiras</NavLink>
           <NavLink to="/historias">Histórias</NavLink>
           <NavLink to="/ajudar">Como ajudar</NavLink>
           <NavLink to="/contato">Contato</NavLink>

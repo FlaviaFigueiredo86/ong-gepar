@@ -27,11 +27,9 @@ export default function AnimalCard({ animal }) {
 
         <h3>{animal.nome}</h3>
 
-        <p><strong>Sexo:</strong> {animal.sexo}</p>
-
         <p><strong>Idade:</strong> {animal.idade}</p>
 
-        <p><strong>Porte:</strong> {animal.porte}</p>
+        <p><strong>Sexo:</strong> {animal.sexo}</p>
 
         <Link
           className="btn outline"

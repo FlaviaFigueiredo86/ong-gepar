@@ -61,9 +61,11 @@ export function Animais({ inicial = false }) {
   );
 
   const visible = inicial
-    ? filtrados.slice(0, 6)
-    : filtrados;
-
+  ? [
+      ...filtrados.filter(a => a.especie === 'Cão').slice(0, 3),
+      ...filtrados.filter(a => a.especie === 'Gato').slice(0, 3)
+    ]
+  : filtrados;
   return (
     <section className="wrap section">
 
@@ -134,6 +136,10 @@ export function Detalhes() {
     `Olá! Vi o perfil de ${a?.nome} no site da ONG GEPAR e gostaria de saber mais sobre a adoção.`
   );
 
+  const temInformacao = valor =>
+    valor &&
+    !/^não informad[oa]s?$/i.test(String(valor).trim());
+
   return (
     <section className="wrap section">
 
@@ -164,67 +170,61 @@ export function Detalhes() {
 
             <div className="perfil-dados">
 
-              <div>
-                <strong>Espécie</strong>
-                <p>{a.especie}</p>
-              </div>
-
-              <div>
-                <strong>Sexo</strong>
-                <p>{a.sexo}</p>
-              </div>
-
-              <div>
-                <strong>Idade</strong>
-                <p>{a.idade}</p>
-              </div>
-
-              <div>
-                <strong>Porte</strong>
-                <p>{a.porte}</p>
-              </div>
-
-              <div>
-                <strong>Castração</strong>
-                <p>{a.castracao || 'Não informada'}</p>
-              </div>
-
-              <div>
-                <strong>Localização</strong>
-                <p>{a.cidade || 'Não informada'}</p>
-              </div>
+              {[
+                ['Nome', a.nome],
+                ['Espécie', a.especie],
+                ['Idade aproximada', a.idade],
+                ['Sexo', a.sexo],
+                ['Porte', a.porte],
+                ['Pelagem', a.pelagem],
+                ['Castração', a.castracao],
+                ['Vermifugação', a.vermifugacao],
+                ['Antipulgas', a.antipulgas],
+                ['Localização', a.cidade]
+              ]
+                .filter(([titulo, valor]) =>
+                  temInformacao(valor)
+                )
+                .map(([titulo, valor]) => (
+                  <div key={titulo}>
+                    <strong>{titulo}</strong>
+                    <p>{valor}</p>
+                  </div>
+                ))}
 
             </div>
 
-            <div className="perfil-historia">
+            {temInformacao(a.descricao) && (
+              <div className="perfil-historia">
 
-              <h2>Conheça {a.nome}</h2>
+                <h2>Conheça {a.nome}</h2>
 
-              <p>{a.descricao}</p>
+                <p>{a.descricao}</p>
 
-            </div>
+              </div>
+            )}
 
             <div className="perfil-contato">
 
               <h3>Informações para adoção</h3>
 
-              <p>
-                <strong>Responsável:</strong>{' '}
-                {a.responsavel || 'Não informado'}
-              </p>
+              {temInformacao(a.responsavel) && (
+                <p>
+                  <strong>Responsável:</strong>{' '}
+                  {a.responsavel}
+                </p>
+              )}
 
-              <p>
-                <strong>Telefone:</strong>{' '}
-                {telefone ? (
+              {temInformacao(telefone) && (
+                <p>
+                  <strong>Telefone:</strong>{' '}
                   <a href={'tel:+' + telefone}>
                     {telefoneFormatado}
                   </a>
-                ) : (
-                  'Não informado'
-                )}
-              </p>
+                </p>
+              )}
 
-              {telefone ? (
+              {temInformacao(telefone) ? (
                 <a
                   className="btn whatsapp"
                   href={

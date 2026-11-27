@@ -4,6 +4,11 @@ const foto = (nome) =>
   import.meta.env.BASE_URL +
   'Animais%20Gepar/' + encodeURIComponent(nome + '.png');
 
+const fotoGato = (nome) =>
+  import.meta.env.BASE_URL +
+  'Animais%20Gepar/Gatinhos/' +
+  encodeURIComponent(nome + '.png');
+
 export const demo = [
   {
     id: '1',
@@ -228,6 +233,57 @@ export const demo = [
     responsavel: 'Herla',
     whatsapp: '5551996765347',
     descricao: 'Um filhotinho doce, carinhoso e cheio de amor para dar.'
+  },
+  {
+    id: '17',
+    nome: 'Faísca',
+    especie: 'Gato',
+    idade: '3 meses',
+    sexo: 'Macho',
+    porte: 'Pequeno',
+    pelagem: 'Preta e branca',
+    foto: fotoGato('faisca'),
+    castracao: 'Filhote',
+    vermifugacao: 'Não informada',
+    antipulgas: 'Não informado',
+    cidade: 'Não informada',
+    responsavel: 'Não informado',
+    whatsapp: '5551984181005',
+    descricao: 'Faísca é um lindo gatinho de apenas 3 meses, com patinhas brancas e um olhar encantador. Está à procura de uma família que possa oferecer muito amor, carinho, proteção e um lar seguro para crescer feliz.'
+  },
+  {
+    id: '18',
+    nome: 'Godofredo',
+    especie: 'Gato',
+    idade: '3 meses',
+    sexo: 'Macho',
+    porte: 'Pequeno',
+    pelagem: 'Tigrada e branca',
+    foto: fotoGato('godofredo'),
+    castracao: 'Filhote',
+    vermifugacao: 'Não informada',
+    antipulgas: 'Não informado',
+    cidade: 'Não informada',
+    responsavel: 'Não informado',
+    whatsapp: '5551984181005',
+    descricao: 'Godofredo é um lindo gatinho de apenas 3 meses, com pelagem tigrada, patinhas brancas e um olhar apaixonante. Procura uma família responsável que possa oferecer carinho, cuidado e um lar cheio de amor.'
+  },
+  {
+    id: '19',
+    nome: 'Mística',
+    especie: 'Gato',
+    idade: 'Aproximadamente 5 meses',
+    sexo: 'Fêmea',
+    porte: 'Pequeno',
+    pelagem: 'Cinza',
+    foto: fotoGato('mistica'),
+    castracao: 'Filhote',
+    vermifugacao: 'Sim',
+    antipulgas: 'Sim',
+    cidade: 'Não informada',
+    responsavel: 'Não informado',
+    whatsapp: '5551991593631',
+    descricao: 'Mística é uma linda gatinha cinza, muito meiga e carinhosa. Foi encontrada no pátio de um local de trabalho e acolhida temporariamente. Já está vermifugada e recebeu tratamento antipulgas. Agora procura uma família que possa oferecer um lar seguro, muito amor, cuidado e carinho.'
   }
 ];
 
